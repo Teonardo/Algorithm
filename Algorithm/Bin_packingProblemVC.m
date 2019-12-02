@@ -49,7 +49,7 @@ void prepareGoodsData(GoodsNode* arr[])
 // 排序(降序)
 void sortDescending(GoodsNode* arr[])
 {
-    for (int i = 0; i < GOODS_COUNT - 1; i ++) {
+    for (int i = 0; i < GOODS_COUNT; i ++) {
         for (int j = 0; j < GOODS_COUNT - 1 - i; j ++) {
             if ((*arr[j]).volume < (*arr[j+1]).volume) {
                 GoodsNode temp = *arr[j];
