@@ -46,12 +46,12 @@ void prepareGoodsData(GoodsNode* arr[])
     }
 }
 
-// 排序
+// 排序(降序)
 void sortDescending(GoodsNode* arr[])
 {
-    for (int i = 0; i < GOODS_COUNT; i ++) {
-        for (int j = i; j < GOODS_COUNT - i - 1; j ++) {
-            if ((*arr[j]).volume > (*arr[j+1]).volume) {
+    for (int i = 0; i < GOODS_COUNT - 1; i ++) {
+        for (int j = 0; j < GOODS_COUNT - 1 - i; j ++) {
+            if ((*arr[j]).volume < (*arr[j+1]).volume) {
                 GoodsNode temp = *arr[j];
                 *arr[j] = *arr[j+1];
                 *arr[j+1] = temp;
@@ -154,7 +154,7 @@ void printBox(BoxNode *box)
     GoodsNode* goods[GOODS_COUNT] = {0};
     // 构造数据
     prepareGoodsData(goods);
-    // 排序
+    // 排序(降序排序: 优先装大的)
     sortDescending(goods);
     // 装箱
     BoxNode *box_head = pack(goods);
